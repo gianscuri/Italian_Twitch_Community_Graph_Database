@@ -2,12 +2,11 @@ import asyncio
 import aiohttp
 import requests
 import json
-import pandas as pd
 import datetime
 
 def load_keys():
-  file = open("twitch_api_keys.txt", "r")
-  content = file.readlines()
+  file_keys = open("twitch_api_keys.txt", "r")
+  content = file_keys.readlines()
   return content[1].strip(), content[3].strip()
 
 def request_access_token(client_id, client_secret):
@@ -48,7 +47,7 @@ def all_active_streams(client_id, access_token):
   print(f'Numero di stream online: {num_stream}') # Numero di stream online
   return tot, num_stream
 
-def name_list(tot, num_stream):
+def stream_details(tot, num_stream):
   user_login = [tot[i]['user_login'] for i in range(num_stream)]
   user_name = [tot[i]['user_name'] for i in range(num_stream)]
   game_name = [tot[i]['game_name'] for i in range(num_stream)]
@@ -78,17 +77,19 @@ async def streams_with_viewer(user_login):
 
 def create_dict(stream_list, user_name, game_name, viewer_count):
   stream_dict = {}
+  tot_spect_number = 0
   for i in range(len(user_name)):
     stream_dict[user_name[i]] = {}
     stream_dict[user_name[i]]['spect'] = stream_list[i]['chatters']['viewers']
     stream_dict[user_name[i]]['game_name'] = game_name[i]
     stream_dict[user_name[i]]['viewer_count'] = viewer_count[i]
+    tot_spect_number = tot_spect_number + len(stream_dict[user_name[i]]['spect'])
+  print(f'Numero di spettatori online: {tot_spect_number}')
   return stream_dict
 
 def save_file(stream_dict):
   filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
-
-  with open(f'c:/Users/gianl/Desktop/Uni Bicocca/GitHub/Twitch_Community_Graph/files/{filename}.txt', 'w') as writefile:
+  with open(f'files_stream/{filename}.txt', 'w') as writefile:
     writefile.write(json.dumps(stream_dict))
 
 
@@ -96,7 +97,7 @@ def save_file(stream_dict):
 client_id, client_secret = load_keys()
 access_token = request_access_token(client_id, client_secret)
 tot, num_stream = all_active_streams(client_id, access_token)
-user_name, user_login, game_name, viewer_count = name_list(tot, num_stream)
+user_name, user_login, game_name, viewer_count = stream_details(tot, num_stream)
 
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()) #serve per non far uscire un errore
 stream_list = asyncio.run(streams_with_viewer(user_login))
