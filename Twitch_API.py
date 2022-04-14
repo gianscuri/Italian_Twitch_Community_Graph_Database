@@ -49,9 +49,11 @@ def all_active_streams(client_id, access_token):
   return tot, num_stream
 
 def name_list(tot, num_stream):
-  user_name = [tot[i]['user_name'] for i in range(num_stream)]
   user_login = [tot[i]['user_login'] for i in range(num_stream)]
-  return user_name, user_login
+  user_name = [tot[i]['user_name'] for i in range(num_stream)]
+  game_name = [tot[i]['game_name'] for i in range(num_stream)]
+  viewer_count = [tot[i]['viewer_count'] for i in range(num_stream)]
+  return user_name, user_login, game_name, viewer_count
 
 def get_tasks(session, user_login):
   tasks = []
@@ -74,35 +76,30 @@ async def streams_with_viewer(user_login):
       results.append(await response.json())
   return results
 
-def create_dict(stream_list, list):
-  for stream, name in zip(stream_list, list):
-    stream_dict = {}
-    streamer = name
-    #print(stream['chatters']['broadcaster'])
-    #stream_dict[streamer] = {}
-    #stream_dict[streamer]['spect'] = stream['chatters']['vips'] + stream['chatters']['moderators'] + stream['chatters']['viewers']
-    #stream_dict[streamer]['game_name'] = list(filter(lambda person: person['user_name'] == streamer, tot))[0]['game_name']
-    #stream_dict[streamer]['viewer_count'] = list(filter(lambda person: person['user_name'] == streamer, tot))[0]['viewer_count']
-  #return stream_dict
+def create_dict(stream_list, user_name, game_name, viewer_count):
+  stream_dict = {}
+  for i in range(len(user_name)):
+    stream_dict[user_name[i]] = {}
+    stream_dict[user_name[i]]['spect'] = stream_list[i]['chatters']['viewers']
+    stream_dict[user_name[i]]['game_name'] = game_name[i]
+    stream_dict[user_name[i]]['viewer_count'] = viewer_count[i]
+  return stream_dict
 
-def save_file(dict):
+def save_file(stream_dict):
   filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
-  #with open(f'Data/Viewers/{filename}.txt', 'x') as writefile:
-  with open(f'c:/Users/gianl/Desktop/Uni Bicocca/GitHub/Twitch_Community_Graph/files/prova.txt', 'w') as writefile:
-    writefile.write(dict)
+  with open(f'c:/Users/gianl/Desktop/Uni Bicocca/GitHub/Twitch_Community_Graph/files/{filename}.txt', 'w') as writefile:
+    writefile.write(json.dumps(stream_dict))
 
 
 #MAIN
 client_id, client_secret = load_keys()
 access_token = request_access_token(client_id, client_secret)
 tot, num_stream = all_active_streams(client_id, access_token)
-user_name, user_login = name_list(tot, num_stream)
+user_name, user_login, game_name, viewer_count = name_list(tot, num_stream)
 
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()) #serve per non far uscire un errore
 stream_list = asyncio.run(streams_with_viewer(user_login))
 
-
-#dict = create_dict(stream_list, tot)
-
-#save_file(str(dict))
+stream_dict = create_dict(stream_list, user_name, game_name, viewer_count)
+save_file(stream_dict)
