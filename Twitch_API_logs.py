@@ -4,11 +4,12 @@ import requests
 import json
 import datetime
 import logging
+import os
 
 
 #LOGGING
 #info fin quando tutto procede bene
-logging.basicConfig(filename= 'log_twitch.log', level =logging.INFO,
+logging.basicConfig(filename= 'Files_stream/log/log_twitch.log', level =logging.INFO,
                     format= '%(asctime)s:%(levelname)s:%(message)s')
 #per gli errori
 #logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(asctime)s:%(levelname)s:%(message)s')
@@ -31,10 +32,10 @@ finally:
 """
 
 #questo servirà per la diagnostica degli errori, dà informazioni dettagliate
-logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename= 'Files_stream/log/log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
-def load_keys():
-  file_keys = open("twitch_api_keys.txt", "r")
+def load_keys(path):
+  file_keys = open(os.path.join(path, 'API_keys/api_keys_twitch.txt'), "r")
   content = file_keys.readlines()
   logging.info('Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
@@ -132,8 +133,8 @@ def save_file(stream_dict):
   filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
   try:
-        with open(f'files_stream/{filename}.txt', 'w') as writefile:
-            writefile.write(json.dumps(stream_dict))
+        with open(os.path.join(path, f'Files_stream/{filename}.json'), 'w') as writefile:
+            json.dump(stream_dict, writefile)
         logging.info('file {} salvato'.format(filename))
         
   except IOError:
@@ -146,8 +147,8 @@ def save_file(stream_dict):
     
 
 
- 
-client_id, client_secret = load_keys()
+path = os.getcwd()
+client_id, client_secret = load_keys(path)
 access_token = request_access_token(client_id, client_secret)
 tot, num_stream = all_active_streams(client_id, access_token)
 user_name, user_login, game_name, viewer_count = stream_details(tot, num_stream)

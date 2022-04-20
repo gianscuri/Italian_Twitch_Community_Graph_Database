@@ -1,0 +1,1 @@
+"C:\ProgramData\Anaconda3\python.exe" "C:\Users\gianl\Desktop\Uni Bicocca\GitHub\Twitch_Community_Graph\Twitch_API_logs.py"
