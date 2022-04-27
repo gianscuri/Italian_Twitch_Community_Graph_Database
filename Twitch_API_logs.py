@@ -4,40 +4,26 @@ import requests
 import json
 import datetime
 import logging
-import os
+import time
+import multiprocessing
+import sys
 
 
 #LOGGING
 #info fin quando tutto procede bene
-logging.basicConfig(filename= 'Files_stream/log/log_twitch.log', level =logging.INFO,
-                    format= '%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename= 'log_twitch.log', level =logging.INFO,
+                    format= '%(asctime)s,%(levelname)s,%(message)s')
 #per gli errori
-#logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(asctime)s:%(levelname)s:%(message)s')
 
-"""
---Per la gestione degli errori--
 
-try:
-  funzione_che_fa_cose()
-  
-except Exception as e:   #la più generica, sarebbe opportuno sapere che tipo di errore
-  
-  logging.error('Houston, we have a problem') #scrive il messaggio di errore sul file di log
+#per la diagnostica degli errori, dà informazioni dettagliate
+logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
-finally: 
-
-   pass      #vado oltre
-   
-
-"""
-
-#questo servirà per la diagnostica degli errori, dà informazioni dettagliate
-logging.basicConfig(filename= 'Files_stream/log/log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
-
-def load_keys(path):
-  file_keys = open(os.path.join(path, 'API_keys/api_keys_twitch.txt'), "r")
+def load_keys():
+  file_keys = open("twitch_api_keys.txt", "r")
   content = file_keys.readlines()
-  logging.info('Caricamento chiavi di accesso')
+  logging.info('1-Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
 
 def request_access_token(client_id, client_secret):
@@ -76,7 +62,7 @@ def all_active_streams(client_id, access_token):
 
   print(f'Numero di stream online: {num_stream}') # Numero di stream online
   #write message on log file
-  logging.info('Numero di stream online: {}'.format(num_stream))
+  logging.info('2-Numero di stream online: {}'.format(num_stream))
   return tot, num_stream
 
 def stream_details(tot, num_stream):
@@ -125,7 +111,7 @@ def create_dict(stream_list, user_name, game_name, viewer_count):
     tot_spect_number = tot_spect_number + len(stream_dict[user_name[i]]['spect'])
   print(f'Numero di spettatori online: {tot_spect_number}')
   #write message on log file
-  logging.info('Numero di spettatori online: {}'.format(tot_spect_number))
+  logging.info('3-Numero di spettatori online: {}'.format(tot_spect_number))
   return stream_dict
 
 def save_file(stream_dict):
@@ -133,9 +119,9 @@ def save_file(stream_dict):
   filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
   try:
-        with open(os.path.join(path, f'Files_stream/{filename}.json'), 'w') as writefile:
-            json.dump(stream_dict, writefile)
-        logging.info('file {} salvato'.format(filename))
+        with open(f'files_stream/{filename}.txt', 'w') as writefile:
+            writefile.write(json.dumps(stream_dict))
+        logging.info('4-file {} salvato'.format(filename))
         
   except IOError:
     
@@ -147,14 +133,34 @@ def save_file(stream_dict):
     
 
 
-path = os.getcwd()
-client_id, client_secret = load_keys(path)
-access_token = request_access_token(client_id, client_secret)
-tot, num_stream = all_active_streams(client_id, access_token)
-user_name, user_login, game_name, viewer_count = stream_details(tot, num_stream)
+def main(): 
+    
+    try:
+        client_id, client_secret = load_keys()
+        access_token = request_access_token(client_id, client_secret)
+        tot, num_stream = all_active_streams(client_id, access_token)
+        user_name, user_login, game_name, viewer_count = stream_details(tot, num_stream)
+        logging.debug(asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()))
+        stream_list = asyncio.run(streams_with_viewer(user_login))
+        stream_dict = create_dict(stream_list, user_name, game_name, viewer_count)
+        save_file(stream_dict)
+        
+    except TimeoutException:
+        logging.error('esecuzione terminata per timeout')
+        
 
-logging.debug(asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())) #serve per non far uscire un errore
-stream_list = asyncio.run(streams_with_viewer(user_login))
+if __name__ == '__main__':
+    
+     # Start main as a process
+    p = multiprocessing.Process(target=main, name="Main", args=())
+    p.start()
 
-stream_dict = create_dict(stream_list, user_name, game_name, viewer_count)
-logging.debug(save_file(stream_dict))
+    # Wait 270 seconds for main
+    time.sleep(270)
+    
+
+    # Terminate main
+    p.terminate()
+
+    # Cleanup
+    p.join()
