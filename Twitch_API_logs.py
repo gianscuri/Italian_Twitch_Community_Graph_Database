@@ -21,7 +21,7 @@ logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(
 logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 def load_keys():
-  file_keys = open("API_keys/api_keys_twitch.txt", "r")
+  file_keys = open("twitch_api_keys.txt", "r")
   content = file_keys.readlines()
   logging.info('1-Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
@@ -83,10 +83,9 @@ def get_tasks(session, user_login):
   tasks = []
 
   for login in user_login:
-    login='!£$%^&*'
+    
     URL = f'https://tmi.twitch.tv/group/user/{login}/chatters'
     tasks.append(session.get(url = URL, ssl = False))
-
 
   return tasks
 
@@ -94,13 +93,9 @@ async def streams_with_viewer(user_login):
   results = []
 
   async with aiohttp.ClientSession() as session:
-    try:
-      tasks = get_tasks(session, user_login)
-      responses = await asyncio.gather(*tasks)
-    except aiohttp.ContentTypeError:
-      logging.error("error in string URL request")
-    finally:
-      pass
+    
+    tasks = get_tasks(session, user_login)
+    responses = await asyncio.gather(*tasks)
 
     for response in responses:
       results.append(await response.json())
@@ -139,34 +134,41 @@ def save_file(stream_dict):
     
 
 
-def main(): 
-    
-    try:
-        client_id, client_secret = load_keys()
-        access_token = request_access_token(client_id, client_secret)
-        tot, num_stream = all_active_streams(client_id, access_token)
-        user_name, user_login, game_name, viewer_count = stream_details(tot, num_stream)
-        logging.debug(asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()))
-        stream_list = asyncio.run(streams_with_viewer(user_login))
-        stream_dict = create_dict(stream_list, user_name, game_name, viewer_count)
-        save_file(stream_dict)
+def main():
+    client_id, client_secret = load_keys()
+    access_token = request_access_token(client_id, client_secret)
+    tot, num_stream = all_active_streams(client_id, access_token)
+    user_name, user_login, game_name, viewer_count = stream_details(tot, num_stream)
+    logging.debug(asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()))
+    stream_list = asyncio.run(streams_with_viewer(user_login))
+    stream_dict = create_dict(stream_list, user_name, game_name, viewer_count)
+    save_file(stream_dict)
         
-    except TimeoutException:
-        logging.error('Esecuzione terminata per timeout')
+        
+  
         
 
 if __name__ == '__main__':
     
      # Start main as a process
+   
+ 
     p = multiprocessing.Process(target=main, name="Main", args=())
     p.start()
 
     # Wait 270 seconds for main
-    time.sleep(270)
+    time.sleep(40)
+        
+    #except multiprocessing.TimeoutError:
+        #logging.error('Esecuzione terminata per timeout')
     
 
     # Terminate main
     p.terminate()
+    
+    if stream_dict not in globals():
+        logging.error('Esecuzione terminata senza successo')
+        
 
     # Cleanup
     p.join()
