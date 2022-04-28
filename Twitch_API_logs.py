@@ -21,7 +21,7 @@ logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(
 logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 def load_keys():
-  file_keys = open("twitch_api_keys.txt", "r")
+  file_keys = open("API_keys/api_keys_twitch.txt", "r")
   content = file_keys.readlines()
   logging.info('1-Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
@@ -83,8 +83,10 @@ def get_tasks(session, user_login):
   tasks = []
 
   for login in user_login:
+    login='!£$%^&*'
     URL = f'https://tmi.twitch.tv/group/user/{login}/chatters'
     tasks.append(session.get(url = URL, ssl = False))
+
 
   return tasks
 
@@ -92,9 +94,13 @@ async def streams_with_viewer(user_login):
   results = []
 
   async with aiohttp.ClientSession() as session:
-    
-    tasks = get_tasks(session, user_login)
-    responses = await asyncio.gather(*tasks)
+    try:
+      tasks = get_tasks(session, user_login)
+      responses = await asyncio.gather(*tasks)
+    except aiohttp.ContentTypeError:
+      logging.error("error in string URL request")
+    finally:
+      pass
 
     for response in responses:
       results.append(await response.json())
@@ -146,7 +152,7 @@ def main():
         save_file(stream_dict)
         
     except TimeoutException:
-        logging.error('esecuzione terminata per timeout')
+        logging.error('Esecuzione terminata per timeout')
         
 
 if __name__ == '__main__':
