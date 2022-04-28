@@ -21,7 +21,7 @@ logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(
 logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 def load_keys():
-  file_keys = open("twitch_api_keys.txt", "r")
+  file_keys = open("API_keys/api_keys_twitch.txt", "r")
   content = file_keys.readlines()
   logging.info('1-Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
@@ -120,7 +120,7 @@ def save_file(stream_dict):
   filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
   try:
-        with open(f'files_stream/{filename}.txt', 'w') as writefile:
+        with open(f'Files_stream/{filename}.json', 'w') as writefile:
             writefile.write(json.dumps(stream_dict))
         logging.info('4-file {} salvato'.format(filename))
         
