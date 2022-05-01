@@ -17,13 +17,13 @@ logging.basicConfig(filename= 'log_twitch.log', level =logging.INFO,
 logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 
-#per la diagnostica degli errori, dà informazioni dettagliate
+#per la diagnostica degli errori
 logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 def load_keys():
   file_keys = open("API_keys/api_keys_twitch.txt", "r")
   content = file_keys.readlines()
-  logging.info('1-Caricamento chiavi di accesso')
+  logging.info('1,Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
 
 def request_access_token(client_id, client_secret):
@@ -62,7 +62,7 @@ def all_active_streams(client_id, access_token):
 
   print(f'Numero di stream online: {num_stream}') # Numero di stream online
   #write message on log file
-  logging.info('2-Numero di stream online: {}'.format(num_stream))
+  logging.info('2,Numero di stream online: {}'.format(num_stream))
   return tot, num_stream
 
 def stream_details(tot, num_stream):
@@ -98,7 +98,15 @@ async def streams_with_viewer(user_login):
     responses = await asyncio.gather(*tasks)
 
     for response in responses:
-      results.append(await response.json())
+        try:
+            results.append(await response.json())
+        except Exception:
+            logging.error('Error in user_login: Attempt to decode JSON with unexpected mimetype')
+        finally:
+            pass
+            
+            
+       
   return results
 
 def create_dict(stream_list, user_name, game_name, viewer_count):
@@ -112,7 +120,7 @@ def create_dict(stream_list, user_name, game_name, viewer_count):
     tot_spect_number = tot_spect_number + len(stream_dict[user_name[i]]['spect'])
   print(f'Numero di spettatori online: {tot_spect_number}')
   #write message on log file
-  logging.info('3-Numero di spettatori online: {}'.format(tot_spect_number))
+  logging.info('3,Numero di spettatori online: {}'.format(tot_spect_number))
   return stream_dict
 
 def save_file(stream_dict):
@@ -122,7 +130,7 @@ def save_file(stream_dict):
   try:
         with open(f'Files_stream/{filename}.json', 'w') as writefile:
             writefile.write(json.dumps(stream_dict))
-        logging.info('4-file {} salvato'.format(filename))
+        logging.info('4,file {} salvato'.format(filename))
         
   except IOError:
     
@@ -151,24 +159,17 @@ def main():
 if __name__ == '__main__':
     
      # Start main as a process
-   
- 
     p = multiprocessing.Process(target=main, name="Main", args=())
     p.start()
 
     # Wait 270 seconds for main
-    time.sleep(40)
+    p.join(timeout=20)
         
-    #except multiprocessing.TimeoutError:
-        #logging.error('Esecuzione terminata per timeout')
     
-
-    # Terminate main
-    p.terminate()
-    
-    if stream_dict not in globals():
-        logging.error('Esecuzione terminata senza successo')
+    #if the process is still running kill it and log timeout error
+    if p.is_alive():
+        p.terminate()
+        logging.error('Esecuzione terminata per Timeout')
         
 
-    # Cleanup
-    p.join()
+   
