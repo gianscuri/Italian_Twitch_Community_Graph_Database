@@ -163,7 +163,7 @@ if __name__ == '__main__':
     p.start()
 
     # Wait 270 seconds for main
-    p.join(timeout=20)
+    p.join(timeout=270)
         
     
     #if the process is still running kill it and log timeout error
