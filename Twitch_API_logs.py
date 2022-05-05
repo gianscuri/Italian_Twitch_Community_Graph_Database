@@ -9,19 +9,22 @@ import multiprocessing
 import sys
 
 
+path= ''
+
 #LOGGING
 #info fin quando tutto procede bene
-logging.basicConfig(filename= 'log_twitch.log', level =logging.INFO,
+logging.basicConfig(filename= f'{path}log_twitch.log', level =logging.INFO,
                     format= '%(asctime)s,%(levelname)s,%(message)s')
 #per gli errori
-logging.basicConfig(filename= 'log_twitch.log', level =logging.ERROR,format= '%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename= f'{path}log_twitch.log', level =logging.ERROR,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 
 #per la diagnostica degli errori
-logging.basicConfig(filename= 'log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename= f'{path}log_twitch.log', level =logging.DEBUG,format= '%(asctime)s:%(levelname)s:%(message)s')
 
 def load_keys():
-  file_keys = open("API_keys/api_keys_twitch.txt", "r")
+    
+  file_keys = open(f"{path}API_keys/api_keys_twitch.txt", "r")
   content = file_keys.readlines()
   logging.info('1,Caricamento chiavi di accesso')
   return content[1].strip(), content[3].strip()
@@ -128,7 +131,7 @@ def save_file(stream_dict):
   filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
   try:
-        with open(f'Files_stream/{filename}.json', 'w') as writefile:
+        with open(f'{path}Files_stream/{filename}.json', 'w') as writefile:
             writefile.write(json.dumps(stream_dict))
         logging.info('4,file {} salvato'.format(filename))
         
