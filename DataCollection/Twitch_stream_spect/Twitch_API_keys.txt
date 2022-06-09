@@ -1,4 +1,0 @@
-ID client:
-ftihxbmc50r9w6kckdoddiwp2t3r5o
-Secret client:
-cflrca9973zm1s73shtin4fswkfayy
