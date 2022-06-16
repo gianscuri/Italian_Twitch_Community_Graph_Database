@@ -7,7 +7,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 5,Dante's Inferno,,,,,
 6,The Stanley Parable: Ultra Deluxe,The Stanley Parable: Ultra Deluxe,Crows Crows Crows,,2022-04-27,"['Comedy', 'Multiple Endings', 'Choices Matter', 'Walking Simulator', 'First-Person', 'Singleplayer']"
 7,The Long Drive,The Long Drive,Genesz,,2019-09-25,"['Automobile Sim', 'Open World', 'Driving', 'Survival', 'Post-apocalyptic', 'Exploration']"
-8,Cyber Hunter,Cyberhunt,NukGames,,,"['Indie', 'Action', 'Casual', 'Adventure', ""Shoot 'Em Up"", 'Twin Stick Shooter']"
+8,Cyber Hunter,,,,,
 9,Rogue Lords,,,,,
 10,Assassin's Creed IV: Black Flag,Assassin’s Creed® IV Black Flag™,Ubisoft Montreal,Ubisoft,,"['Pirates', 'Open World', 'Assassin', 'Action', 'Adventure', 'Stealth']"
 11,INSIDE,INSIDE,Playdead,,2016-07-07,"['Puzzle', 'Atmospheric', 'Adventure', 'Story Rich', 'Platformer', 'Indie']"
@@ -29,7 +29,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 27,Final Fantasy VIII Remastered,FINAL FANTASY VIII - REMASTERED,Square Enix,,2019-09-03,"['RPG', 'Adventure', 'JRPG', 'Story Rich', 'Turn-Based', 'Great Soundtrack']"
 28,Yomawari: Night Alone,,,,,
 29,Hatoful Boyfriend,,,,,
-30,Tomb Raider: Gold,,,,,
+30,Tomb Raider: Gold,Tomb Raider,Crystal Dynamics,Square Enix,,"['Adventure', 'Action', 'Female Protagonist', 'Third Person', 'Singleplayer', 'Story Rich']"
 31,Scribble It!,,,,,
 32,Kingdom Hearts,,,,,
 33,Dwarfenstein,,,,,
@@ -52,7 +52,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 50,The Forest,The Forest,Endnight Games Ltd,,2018-04-30,"['Open World Survival Craft', 'Survival', 'Open World', 'Horror', 'Crafting', 'Adventure']"
 51,Salt and Sanctuary,,,,,
 52,Endless Legend,ENDLESS™ Legend,AMPLITUDE Studios,SEGA,2014-09-18,"['Strategy', '4X', 'Turn-Based', 'Turn-Based Strategy', 'Fantasy', 'Hex Grid']"
-53,Heroes of the Storm,Heroes Of The Dark,Gameloft,,,"['RPG', 'Strategy', '4X', 'City Builder', 'MMORPG', 'Strategy RPG']"
+53,Heroes of the Storm,,,,,
 54,Quiz It,,,,,
 55,Inscryption,Inscryption,Daniel Mullins Games,Devolver Digital,2021-10-19,"['Card Battler', 'Card Game', 'Story Rich', 'Deckbuilding', 'Horror', 'Dark']"
 56,Shin Megami Tensei V,,,,,
@@ -156,7 +156,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 154,The Gunk,,,,,
 155,BlazBlue: Central Fiction,BlazBlue Centralfiction,Arc System Works,"H2 Interactive Co., Ltd.",2017-04-26,"['Fighting', 'Anime', '2D Fighter', 'Action', 'Great Soundtrack', 'Story Rich']"
 156,Paladins,Paladins®,Evil Mojo Games,Hi-Rez Studios,2018-05-08,"['Hero Shooter', 'Free to Play', 'Multiplayer', 'FPS', 'Shooter', 'Action']"
-157,Infernax,Inferna,INFERNA LIMITED,,2019-12-20,"['Massively Multiplayer', 'RPG', 'Indie', 'Early Access', 'MMORPG', 'Free to Play']"
+157,Infernax,,,,,
 158,Prey,,,,,
 159,Kenshi,Kenshi,Lo-Fi Games,,2018-12-06,"['Open World', 'Sandbox', 'RPG', 'Survival', 'Strategy', 'Building']"
 160,Tomb Raider,Tomb Raider,Crystal Dynamics,Square Enix,2013-03-04,"['Adventure', 'Action', 'Female Protagonist', 'Third Person', 'Singleplayer', 'Story Rich']"
@@ -198,7 +198,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 196,Dragon Ball Z,DRAGON BALL FighterZ,Arc System Works,BANDAI NAMCO Entertainment,,"['Fighting', 'Anime', 'Action', '2D Fighter', 'Multiplayer', 'Competitive']"
 197,She Sees Red,,,,,
 198,Tekken 7,TEKKEN 7,BANDAI NAMCO Studios Inc.,BANDAI NAMCO Entertainment,2017-06-01,"['Fighting', 'Action', 'Multiplayer', 'Competitive', 'Arcade', 'Local Multiplayer']"
-199,Tom Clancy's The Division 2,Tom Clancy’s The Division™,Massive Entertainment,Ubisoft,2016-03-07,"['Open World', 'Multiplayer', 'Looter Shooter', 'Third-Person Shooter', 'Action', 'Co-op']"
+199,Tom Clancy's The Division 2,Tom Clancy’s The Division™,Massive Entertainment,Ubisoft,,"['Open World', 'Multiplayer', 'Looter Shooter', 'Third-Person Shooter', 'Action', 'Co-op']"
 200,Lost Ark,Lost Ark,Smilegate RPG,Amazon Games,2022-02-11,"['MMORPG', 'Free to Play', 'Action RPG', 'RPG', 'Action', 'Hack and Slash']"
 201,S4 League,,,,,
 202,The Elder Scrolls V: Skyrim Special Edition,The Elder Scrolls V: Skyrim Special Edition,Bethesda Game Studios,Bethesda Softworks,2016-10-27,"['Open World', 'RPG', 'Adventure', 'Singleplayer', 'Fantasy', 'Character Customization']"
@@ -240,7 +240,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 238,Super Dragon Ball Heroes: World Mission,SUPER DRAGON BALL HEROES WORLD MISSION,Dimps Corporation,BANDAI NAMCO Entertainment,2019-04-04,"['Strategy', 'Card Game', 'Card Battler', 'Anime', 'Multiplayer', 'Fighting']"
 239,Firefighting Simulator,,,,,
 240,Gartic Show,,,,,
-241,Spyro the Dragon: Reignited Trilogy,Spyro™ Reignited Trilogy,Toys for Bob,Activision,,"['Adventure', '3D Platformer', 'Remake', 'Dragons', 'Action', 'Classic']"
+241,Spyro the Dragon: Reignited Trilogy,Spyro™ Reignited Trilogy,Toys for Bob,Activision,2019-09-03,"['Adventure', '3D Platformer', 'Remake', 'Dragons', 'Action', 'Classic']"
 242,Fishing Sim World: Pro Tour,,,,,
 243,Aim Lab,Aim Lab,Statespace,,2018-02-07,"['Free to Play', 'FPS', 'Shooter', 'Simulation', 'Singleplayer', 'First-Person']"
 244,Water Polo,,,,,
@@ -253,7 +253,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 251,Total War: Warhammer III,Total War: WARHAMMER III,CREATIVE ASSEMBLY,SEGA,2022-02-16,"['Early Access', 'Strategy', 'Turn-Based Strategy', 'Grand Strategy', 'RTS', 'Real Time Tactics']"
 252,SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated,SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated,Purple Lamp,THQ Nordic,2020-06-23,"['Adventure', '3D Platformer', 'Cult Classic', 'Remake', 'Action', 'Casual']"
 253,Super Seducer 2,,,,,
-254,FIFA 21,,,,,
+254,FIFA 21,FIFA 22,EA Canada &amp; EA Romania,Electronic Arts,,"['Soccer', 'Sports', 'Multiplayer', 'Competitive', 'Simulation', 'Football']"
 255,Watch Parties,,,,,
 256,Hearts of Iron IV,Hearts of Iron IV,Paradox Development Studio,Paradox Interactive,2016-06-06,"['Strategy', 'World War II', 'Grand Strategy', 'War', 'Historical', 'Military']"
 257,Ghosts 'n Goblins,,,,,
@@ -278,7 +278,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 276,I am Bread,,,,,
 277,Deep Rock Galactic,Deep Rock Galactic,Ghost Ship Games,Coffee Stain Publishing,2020-05-13,"['Co-op', 'PvE', 'FPS', 'Loot', 'Exploration', 'Procedural Generation']"
 278,Layers of Fear,Layers of Fear (2016),Bloober Team SA,Aspyr,,"['Horror', 'Psychological Horror', 'Atmospheric', 'Walking Simulator', 'First-Person', 'Singleplayer']"
-279,The King of Fighters All-Star,,,,,
+279,The King of Fighters All-Star,THE KING OF FIGHTERS XV,SNK CORPORATION,,,"['Action', '2D Fighter', 'Fighting', 'PvP', 'Multiplayer', '3D']"
 280,Football Manager 2022,Football Manager 2022,Sports Interactive,SEGA,2021-11-08,"['Sports', 'Management', 'Soccer', 'Simulation', 'Real Time Tactics', 'Strategy']"
 281,Maid of Sker,,,,,
 282,Vampyr,Vampyr,DONTNOD Entertainment,Focus Entertainment,2018-06-04,"['Vampire', 'RPG', 'Choices Matter', 'Story Rich', 'Action', 'Open World']"
@@ -316,7 +316,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 314,Role Player: Full Immersion,,,,,
 315,Shadow Hearts,,,,,
 316,Grand Theft Auto: Liberty City Stories,,,,,
-317,Outlast II,Outlast 2,Red Barrels,,,"['Horror', 'Psychological Horror', 'Survival Horror', 'First-Person', 'Gore', 'Singleplayer']"
+317,Outlast II,Outlast 2,Red Barrels,,2017-04-25,"['Horror', 'Psychological Horror', 'Survival Horror', 'First-Person', 'Gore', 'Singleplayer']"
 318,Naruto to Boruto: Shinobi Striker,NARUTO TO BORUTO: SHINOBI STRIKER,Soleil Ltd.,BANDAI NAMCO Entertainment,2018-08-31,"['Anime', 'Action', 'Multiplayer', 'Character Customization', 'Fighting', 'Ninja']"
 319,Castlevania: Symphony of the Night,,,,,
 320,Ultima Online,,,,,
@@ -516,7 +516,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 514,Agar.io,,,,,
 515,Harry Potter and the Goblet of Fire,,,,,
 516,The Night of the Scissors,,,,,
-517,DOOM 3,,,,,
+517,DOOM 3,DOOM,id Software,Bethesda Softworks,,"['FPS', 'Gore', 'Action', 'Shooter', 'Demons', 'Great Soundtrack']"
 518,Escape Simulator,Escape Simulator,Pine Studio,,2021-10-19,"['Puzzle', 'Co-op', 'Multiplayer', 'Escape Room', 'Mystery', 'First-Person']"
 519,Resident Evil,Resident Evil,"CAPCOM Co., Ltd.",,2015-01-19,"['Survival Horror', 'Zombies', 'Horror', 'Classic', 'Remake', 'Atmospheric']"
 520,Serious Sam 4,Serious Sam 2,Croteam,Devolver Digital,,"['Action', 'FPS', 'Co-op', 'Comedy', 'Multiplayer', 'Shooter']"
@@ -539,7 +539,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 537,Crash Team Racing,,,,,
 538,Software and Game Development,,,,,
 539,Dragon's Dogma: Dark Arisen,Dragon's Dogma: Dark Arisen,Capcom,,2016-01-15,"['RPG', 'Open World', 'Character Customization', 'Action', 'Fantasy', 'Adventure']"
-540,Crossfire X,Crosshair X,CenterPoint Gaming,,,"['Application', 'Action', 'Utilities', 'FPS', 'Shooter', 'Software', 'Survival']"
+540,Crossfire X,,,,,
 541,Brawl Stars,,,,,
 542,Battlefield V,Battlefield V,DICE,Electronic Arts,2018-11-09,"['FPS', 'World War II', 'Shooter', 'Multiplayer', 'Singleplayer', 'War']"
 543,Minecraft,,,,,
@@ -598,7 +598,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 596,SOMA,SOMA,Frictional Games,,2015-09-21,"['Philosophical', 'Story Rich', 'Atmospheric', 'Horror', 'Adventure', 'First-Person']"
 597,Cuphead,Cuphead,Studio MDHR Entertainment Inc.,,2017-09-29,"['Difficult', 'Cartoon', 'Platformer', 'Co-op', 'Great Soundtrack', 'Local Co-Op']"
 598,Suspects: Mystery Mansion,,,,,
-599,Spellbreaker,Spellbreak,"Proletariat, Inc.",,,"['Free to Play', 'Multiplayer', 'Battle Royale', 'Magic', 'PvP', 'Fantasy']"
+599,Spellbreaker,,,,,
 600,Shattered: Tale of the Forgotten King,,,,,
 601,Returnal,,,,,
 602,Life is Strange: True Colors,,,,,
@@ -723,7 +723,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 721,Digimon Story Cyber Sleuth,,,,,
 722,Crab Game,Crab Game,Dani,,2021-10-29,"['Psychological Horror', 'Multiplayer', 'Free to Play', 'Battle Royale', 'PvP', 'Action']"
 723,Super Mario World,,,,,
-724,Vampire: The Masquerade - Swansong,,,,,
+724,Vampire: The Masquerade - Swansong,Vampire: The Masquerade - Bloodhunt,Sharkmob AB,,,"['Battle Royale', 'Vampire', 'PvP', 'Third-Person Shooter', 'Survival', 'Supernatural']"
 725,Dark Souls: Remastered,,,,,
 726,Pokémon HeartGold/SoulSilver,,,,,
 727,The Last of Us Part II,,,,,
@@ -820,7 +820,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 818,Peggle,,,,,
 819,The Lucky Dime Caper starring Donald Duck,,,,,
 820,Citizen Sleeper,Citizen Sleeper,Jump Over The Age,Fellow Traveller,2022-05-05,"['RPG', 'Cyberpunk', 'Choices Matter', 'Tabletop', 'Exploration', 'Futuristic']"
-821,Call Of Duty: Modern Warfare,Call of Duty® 4: Modern Warfare®,Infinity Ward,Activision,,"['FPS', 'Action', 'Multiplayer', 'Shooter', 'Singleplayer', 'First-Person']"
+821,Call Of Duty: Modern Warfare,Call of Duty: Modern Warfare 3,Infinity Ward,,,"['Action', 'FPS', 'Multiplayer', 'Shooter', 'First-Person', 'War']"
 822,Sorare,,,,,
 823,Pro Cycling Manager 2021,Pro Cycling Manager 2021,Cyanide Studio,Nacon,2021-06-03,"['Simulation', 'Strategy', 'Cycling', 'Sports', 'Management', 'Competitive']"
 824,Kentucky Route Zero,,,,,
@@ -848,8 +848,8 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 846,The Witcher 3: Wild Hunt,The Witcher® 3: Wild Hunt,CD PROJEKT RED,,2015-05-18,"['Open World', 'RPG', 'Story Rich', 'Atmospheric', 'Mature', 'Fantasy']"
 847,JANITOR BLEEDS,,,,,
 848,The Town of Light,,,,,
-849,Sid Meier's Civilization VI,Sid Meier's Civilization® V,Firaxis Games,2K,2010-09-21,"['Turn-Based Strategy', 'Strategy', 'Turn-Based', 'Multiplayer', 'Historical', '4X']"
-850,Super Robot Wars 30,SUPER ROBOT WARS V,"B.B.STUDIO CO.,LTD.",BANDAI NAMCO Entertainment,,"['Tactical RPG', 'Robots', 'Anime', 'JRPG', 'Turn-Based Tactics', 'Visual Novel']"
+849,Sid Meier's Civilization VI,Sid Meier's Civilization® V,Firaxis Games,2K,,"['Turn-Based Strategy', 'Strategy', 'Turn-Based', 'Multiplayer', 'Historical', '4X']"
+850,Super Robot Wars 30,SUPER ROBOT WARS X,"B.B.STUDIO CO.,LTD.",BANDAI NAMCO Entertainment,,"['Robots', 'Tactical RPG', 'Anime', 'Turn-Based Tactics', 'JRPG', 'Mechs']"
 851,Super Smash Bros. Ultimate,,,,,
 852,Labyrinthine,Labyrinthine,Valko Game Studios,,2020-10-28,"['Horror', 'Puzzle', 'PvE', 'Action-Adventure', 'First-Person', 'Character Customization']"
 853,Metal Gear Acid 2,,,,,
@@ -880,7 +880,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 878,Pinturillo 2,,,,,
 879,Poker,,,,,
 880,Plague Inc: Evolved,Plague Inc: Evolved,Ndemic Creations,,2016-02-18,"['Strategy', 'Simulation', 'Outbreak Sim', 'Indie', 'Singleplayer', 'Multiplayer']"
-881,MotoGP 22,MotoGP™22,Milestone S.r.l.,,,"['Racing', 'Simulation', 'Sports', 'First-Person', 'Split Screen', 'Third Person']"
+881,MotoGP 22,MotoGP™22,Milestone S.r.l.,,2022-04-21,"['Racing', 'Simulation', 'Sports', 'First-Person', 'Split Screen', 'Third Person']"
 882,Pokémon Legends: Arceus,,,,,
 883,Sifu,,,,,
 884,GhostWire: Tokyo,Ghostwire: Tokyo,Tango Gameworks,Bethesda Softworks,2022-03-24,"['Singleplayer', 'Supernatural', 'First-Person', 'Action-Adventure', 'Horror', 'Open World']"
@@ -955,9 +955,9 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 953,The Lord of the Rings: The Battle for Middle-earth II,,,,,
 954,Martha Is Dead,,,,,
 955,MY HERO ONE'S JUSTICE 2,MY HERO ONE'S JUSTICE,Byking Inc.,BANDAI NAMCO Entertainment,,"['Action', 'Anime', 'Fighting', 'Superhero', 'Multiplayer', 'Character Customization']"
-956,Stronghold Crusader II,,,,,
+956,Stronghold Crusader II,Stronghold Crusader 2,FireFly Studios,,2014-09-22,"['Strategy', 'Medieval', 'City Builder', 'RTS', 'Multiplayer', 'Simulation']"
 957,Stream Games,,,,,
-958,Speedrun,SpeedRunners,DoubleDutch Games,tinyBuild,,"['Multiplayer', 'Racing', 'Local Multiplayer', 'Indie', 'Competitive', 'Fast-Paced']"
+958,Speedrun,,,,,
 959,The Dark Pictures Anthology: Man of Medan,The Dark Pictures Anthology: House of Ashes,Supermassive Games,BANDAI NAMCO Entertainment Europe,,"['Choices Matter', 'Horror', 'Survival Horror', 'Psychological Horror', 'Action-Adventure', 'Multiple Endings']"
 960,BATTLESHIP,,,,,
 961,theHunter: Call of the Wild,theHunter: Call of the Wild™,Expansive Worlds,,2017-02-16,"['Hunting', 'Open World', 'Multiplayer', 'Simulation', 'First-Person', 'Shooter']"
@@ -1058,7 +1058,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 1056,WWE SmackDown vs. Raw 2007,,,,,
 1057,We Were Here Together,We Were Here Together,Total Mayhem Games,,2019-10-10,"['Story Rich', 'Puzzle', 'Escape Room', 'Co-op Campaign', 'Online Co-Op', 'Exploration']"
 1058,Emily Wants To Play,,,,,
-1059,BUS SIMULATOR,,,,,
+1059,BUS SIMULATOR,Bus Simulator 21,stillalive studios,astragon Entertainment,,"['Simulation', 'Automobile Sim', 'Immersive Sim', '3D', 'Realistic', 'Colorful']"
 1060,Grim Fandango Remastered,Grim Fandango Remastered,Double Fine Productions,,2015-01-26,"['Adventure', 'Point & Click', 'Classic', 'Story Rich', 'Comedy', 'Noir']"
 1061,The Sims 4,The Sims™ 4,Maxis,Electronic Arts,2014-09-02,"['Life Sim', 'Character Customization', 'Building', 'Simulation', 'Sexual Content', 'Casual']"
 1062,Whispering Willows,,,,,
@@ -1066,7 +1066,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 1064,Mario Kart 64,,,,,
 1065,Cities: Skylines,Cities: Skylines,Colossal Order Ltd.,Paradox Interactive,2015-03-10,"['City Builder', 'Simulation', 'Building', 'Management', 'Strategy', 'Sandbox']"
 1066,Omen Exitio: Plague,,,,,
-1067,The Binding of Isaac: Repentance,The Binding of Isaac: Rebirth,"Nicalis, Inc.",,2014-11-04,"['Action Roguelike', 'Rogue-like', 'Indie', 'Replay Value', 'Difficult', 'Pixel Graphics']"
+1067,The Binding of Isaac: Repentance,The Binding of Isaac: Rebirth,"Nicalis, Inc.",,,"['Action Roguelike', 'Rogue-like', 'Indie', 'Replay Value', 'Difficult', 'Pixel Graphics']"
 1068,Yu-Gi-Oh! Duel Links,Yu-Gi-Oh! Duel Links,Konami Digital Entertainment,,2017-11-16,"['Free to Play', 'Card Game', 'Anime', 'Strategy', 'Multiplayer', 'Trading Card Game']"
 1069,Pokémon Black/White,,,,,
 1070,The Pigeon P,,,,,
@@ -1078,7 +1078,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 1076,Deceit,Deceit,World Makers,,2017-03-03,"['PvP', 'Free to Play', 'Multiplayer', 'Social Deduction', 'Horror', 'FPS']"
 1077,Unpacking,Unpacking,Witch Beam,Humble Games,2021-11-01,"['Relaxing', 'Pixel Graphics', 'Cute', 'Story Rich', 'Casual', 'Simulation']"
 1078,Genshin Impact,,,,,
-1079,Friday the 13th: The Computer Game,Friday the 13th: The Game,IllFonic,Gun Media,2017-05-26,"['Horror', 'Multiplayer', 'Survival Horror', 'Survival', 'Gore', 'Violent']"
+1079,Friday the 13th: The Computer Game,Friday the 13th: The Game,IllFonic,Gun Media,,"['Horror', 'Multiplayer', 'Survival Horror', 'Survival', 'Gore', 'Violent']"
 1080,Path of Exile,Path of Exile,Grinding Gear Games,,2013-10-23,"['Free to Play', 'Action RPG', 'Hack and Slash', 'RPG', 'Multiplayer', 'Loot']"
 1081,Pokémon Platinum,,,,,
 1082,Heave Ho,,,,,
