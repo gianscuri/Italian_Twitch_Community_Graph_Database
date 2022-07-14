@@ -267,7 +267,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 265,Hearthstone,,,,,
 266,Naraka: Bladepoint,NARAKA: BLADEPOINT,24 Entertainment,NetEase Games Montréal,2021-08-11,Battle Royale; Sexual Content; Multiplayer; Martial Arts; Survival; PvP
 267,ObsCure,,,,,
-268,Far Cry 6,Far Cry® 2,Ubisoft Montreal,Ubisoft,,Open World; FPS; Action; Shooter; Singleplayer; First-Person
+268,Far Cry 6,Far Cry® 4,"Ubisoft Montreal, Red Storm, Shanghai, Toronto, Kiev",Ubisoft,,Open World; Action; FPS; Co-op; Adventure; Shooter
 269,Crash Team Racing Nitro-Fueled,,,,,
 270,Tormented Souls,,,,,
 271,Crash Bandicoot 2: Cortex Strikes Back,,,,,
@@ -820,7 +820,7 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 818,Peggle,,,,,
 819,The Lucky Dime Caper starring Donald Duck,,,,,
 820,Citizen Sleeper,Citizen Sleeper,Jump Over The Age,Fellow Traveller,2022-05-05,RPG; Cyberpunk; Choices Matter; Tabletop; Exploration; Futuristic
-821,Call Of Duty: Modern Warfare,Call of Duty: Modern Warfare 3,Infinity Ward,,,Action; FPS; Multiplayer; Shooter; First-Person; War
+821,Call Of Duty: Modern Warfare,Call of Duty® 4: Modern Warfare®,Infinity Ward,Activision,,FPS; Action; Multiplayer; Shooter; Singleplayer; First-Person
 822,Sorare,,,,,
 823,Pro Cycling Manager 2021,Pro Cycling Manager 2021,Cyanide Studio,Nacon,2021-06-03,Simulation; Strategy; Cycling; Sports; Management; Competitive
 824,Kentucky Route Zero,,,,,
@@ -848,8 +848,8 @@ idGame,gameName,steamName,developer,publisher,releaseDate,categories
 846,The Witcher 3: Wild Hunt,The Witcher® 3: Wild Hunt,CD PROJEKT RED,,2015-05-18,Open World; RPG; Story Rich; Atmospheric; Mature; Fantasy
 847,JANITOR BLEEDS,,,,,
 848,The Town of Light,,,,,
-849,Sid Meier's Civilization VI,Sid Meier's Civilization® V,Firaxis Games,2K,2010-09-21,Turn-Based Strategy; Strategy; Turn-Based; Multiplayer; Historical; 4X
-850,Super Robot Wars 30,SUPER ROBOT WARS X,"B.B.STUDIO CO.,LTD.",BANDAI NAMCO Entertainment,,Robots; Tactical RPG; Anime; Turn-Based Tactics; JRPG; Mechs
+849,Sid Meier's Civilization VI,Sid Meier’s Civilization® VI,Firaxis Games,2K,2016-10-20,Strategy; Turn-Based Strategy; Historical; Multiplayer; Singleplayer; Turn-Based
+850,Super Robot Wars 30,SUPER ROBOT WARS V,"B.B.STUDIO CO.,LTD.",BANDAI NAMCO Entertainment,,Tactical RPG; Robots; Anime; JRPG; Turn-Based Tactics; Visual Novel
 851,Super Smash Bros. Ultimate,,,,,
 852,Labyrinthine,Labyrinthine,Valko Game Studios,,2020-10-28,Horror; Puzzle; PvE; Action-Adventure; First-Person; Character Customization
 853,Metal Gear Acid 2,,,,,
