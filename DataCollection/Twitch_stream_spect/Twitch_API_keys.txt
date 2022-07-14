@@ -1,0 +1,4 @@
+client_id
+----INSERT_HERE_CLIENT_ID-----
+client_secret
+----INSERT_HERE_CLIENT_SECRET-----
