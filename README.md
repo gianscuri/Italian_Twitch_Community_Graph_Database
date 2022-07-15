@@ -2,15 +2,15 @@
 
 ## Abstract
 
-[Twitch.tv](https://www.twitch.tv/) is a live streaming platform that allows streamers to broadcast and users to enjoy content in real time. The broadcasts cover various categories related mainly to the world of video games, entertainment, and the arts.
+[Twitch.tv](https://www.twitch.tv/) is a **live streaming platform** that allows streamers to broadcast and users to enjoy content in real time. The broadcasts cover various categories related mainly to the world of videogames, entertainment, and the arts.
 Thanks to its great success, especially in the last few years, both the revenue opportunities for streamers and companies operating in these sectors have increased.
-Understanding the market and the platform, however, is crucial to discovering the interests of users.
-This project therefore aims to collect and analyze information about the different directs in order to create an explorable and queryable graph model of the communities present thus enabling accurate market analysis.
+**Understanding the market and the platform**, however, is crucial to discovering the interests of users.
+This project therefore aims to **collect and analyze data** about the different streams in order to create an explorable and queryable **graph model** of the communities present thus enabling accurate market analysis.
 
-The project consists of a series of scripts to collect, integrate, analyze and save data from different sources. It is thus a tool that can be run in any time frame to obtain the up-to-date graph of the situation.
-The data collection phase is done from two separate sources: [Twitch](https://www.twitch.tv/) for live information and [Steam](https://steamdb.info/graph/) for video game information (a video game distribution site). Collection was done in two distinct ways through the use of APIs and through dynamic scraping techniques. In the processing phase, the datasets containing the streamers, the different video games streamed, and the related bridge-tables that allow them to be linked are then obtained. The streamer-game links were calculated by analyzing the broadcast categories while the streamer-streamer links were calculated by evaluating the rate of common viewers between each pair of streamers.
+The project consists in a series of scripts to collect, integrate, analyze and save data from different sources. It is thus a tool that can be run in any time frame to obtain the up-to-date graph of the situation.
+The data collection phase is done from **two distinct data sources**: [Twitch](https://www.twitch.tv/) for live information through the use of **Web APIs** and [SteamDB](https://steamdb.info/graph/) (a videogame distribution site) for videogame information through **dynamic scraping techniques**. In the processing phase, the datasets containing the streamers, the different video games streamed, and the related bridge-tables that allow them to be linked are then obtained. The **streamer-game relations** were calculated by analyzing the broadcast categories, while the **streamer-streamer relations** were calculated by evaluating the percentage of common viewers between each pair of streamers.
 
-This repository contains data collected over a two-week period in May 2022 regarding all Italian broadcasts on Twitch and data from SteamDB regarding video games. Approximately 2.5GB of data between streams and video games were collected during this period, which after detailed analysis allowed the creation of a graph model on the Neo4j DBMS consisting of 4121 nodes and 54931 relationships.
+This repository contains data collected over a **two-week period in May 2022 regarding all Italian broadcasts** on Twitch and data from SteamDB regarding the most played videogames. Approximately 2.5GB of data were collected during this period, which after a detailed analysis allowed the creation of a graph model on the [Neo4j DBMS](https://neo4j.com/) consisting of **4121 nodes and 54931 edges**.
 
 ## Execution scheme
 
@@ -38,7 +38,7 @@ This repository contains data collected over a two-week period in May 2022 regar
 ### Data Modelling
 
 1. Install [Neo4j Community Server](https://neo4j.com/download-center/#community)
-2. Copy the CSVs obtained in the `output_datasets` folder into your neo4j import folder (neo4j/import/)
+2. Copy the CSVs obtained from the `output_datasets` folder to the neo4j import folder (`neo4j/import/`)
 3. Run `graph_neo4j.ipynb` to load data in Neo4j
 4. Execute desired queries
 
@@ -46,7 +46,7 @@ This repository contains data collected over a two-week period in May 2022 regar
 
 1. Install Gephi
 2. Import `Streamer_dataset_short.csv` and `Streamer-Streamer_dataset_short.csv`
-3. Execute the layout algorithm (e.g. Atlas Force), execute statistics analysis to detect communities (e.g. Modularity), edit nodes and edges colors (more details [here](https://github.com/KiranGershenfeld/VisualizingTwitchCommunities))
+3. Execute some layout algorithms (e.g. Atlas Force), execute statistics analysis to detect communities (e.g. Modularity), edit nodes and edges colors (more details [here](https://github.com/KiranGershenfeld/VisualizingTwitchCommunities))
 
 
 For additional info on the project read `ProjectReport_ita.pdf` (in Italian)
