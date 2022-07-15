@@ -12,11 +12,11 @@ The data collection phase is done from **two distinct data sources**: [Twitch](h
 
 This repository contains data collected over a **two-week period in May 2022 regarding all Italian broadcasts** on Twitch and data from SteamDB regarding the most played videogames. Approximately 2.5GB of data were collected during this period, which after a detailed analysis allowed the creation of a graph model on the [Neo4j DBMS](https://neo4j.com/) consisting of **4121 nodes and 54931 edges**.
 
-## Execution scheme
-
 ![Pipeline](https://github.com/gianscuri/Twitch_Community_Graph/blob/main/DataVisualization/Images/pipeline.png)
 
-### Data Collection
+## Execution scheme
+
+### 1. Data Collection
 
 1. Request and add Twitch API keys to the file `Twitch_API_keys.txt`
 2. Create a repeated execution task for `Twitch_stream_collection.py` every xx minutes (Win: Task Scheduler, Linux: Crontab)
@@ -26,7 +26,7 @@ This repository contains data collected over a **two-week period in May 2022 reg
 4. Download bot dataset from [Twitch Insights](https://twitchinsights.net/bots) using a browser extension (e.g. Table Capture for Chrome) and save it as `Twitch_bot_list.csv`
 5. Run `Twitch_social_link.py` to obtain the streamer's social link (this can be run only after Data Processing because it needs the complete streamer list)
 
-### Data Processing
+### 2. Data Processing
 
 1. Run `DataProcessing.ipynb` selecting the parameters for the analysis in the first block:
     - data source (json files or MongoDB local server)
@@ -35,14 +35,14 @@ This repository contains data collected over a **two-week period in May 2022 reg
 2. Run `DataEnrichment.ipynb` to add games info from SteamDB (verify manually the matches)
 3. Run `DataExploration.ipynb` and `DataQuality.ipynb` to obtain data insights
 
-### Data Modelling
+### 3. Data Modelling
 
 1. Install [Neo4j Community Server](https://neo4j.com/download-center/#community)
 2. Copy the CSVs obtained from the `output_datasets` folder to the neo4j import folder (`neo4j/import/`)
 3. Run `graph_neo4j.ipynb` to load data in Neo4j
 4. Execute desired queries
 
-### Data Visualization
+### 4. Data Visualization
 
 1. Install Gephi
 2. Import `Streamer_dataset_short.csv` and `Streamer-Streamer_dataset_short.csv`
