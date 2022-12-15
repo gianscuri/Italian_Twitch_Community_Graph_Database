@@ -18,13 +18,13 @@ This repository contains data collected over a **two-week period in May 2022 reg
 
 ### 1. Data Collection
 
-1. Request and add Twitch API keys to the file `Twitch_API_keys.txt`
+1. Follow [this doc](https://dev.twitch.tv/docs/authentication), obtain your Twitch API keys (ClientID and ClientSecret) and paste them in the `Twitch_API_keys.txt` file
 2. Create a repeated execution task for `Twitch_stream_collection.py` every xx minutes (Win: Task Scheduler, Linux: Crontab)
-    - choose the language of the desired streams
+    - choose the details (es. language) of the desired streams
     - this script saves the collected stream files in individual json files but it's already supported the upload on MongoDB local server, uncomment the import function in the script (it requires [MongoDB Community Server](https://www.mongodb.com/try/download/community))
-3. Run `steam_games_scraping.ipynb` to scrape [SteamDB](https://steamdb.info/graph/) website (if the website asks CAPTCHA clean browser cookies)
-4. Download bot dataset from [Twitch Insights](https://twitchinsights.net/bots) using a browser extension (e.g. Table Capture for Chrome) and save it as `Twitch_bot_list.csv`
-5. Run `Twitch_social_link.py` to obtain the streamer's social link (this can be run only after Data Processing because it needs the complete streamer list)
+3. Run `steam_games_scraping.ipynb` to scrape [SteamDB](https://steamdb.info/graph/) website (if the website asks CAPTCHA try to clean browser cookies)
+4. Download the bot-users dataset from [Twitch Insights](https://twitchinsights.net/bots) using a browser extension (e.g. Table Capture for Chrome) and save it as `Twitch_bot_list.csv`
+5. Run `Twitch_social_link.py` to obtain the streamer's social link (this can be run only after the collecting and processing phases because it requires the complete streamer list)
 
 ### 2. Data Processing
 
