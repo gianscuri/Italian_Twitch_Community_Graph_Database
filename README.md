@@ -12,6 +12,8 @@ The data collection phase is done from **two distinct data sources**: [Twitch](h
 
 This repository contains data collected over a **two-week period in May 2022 regarding all Italian broadcasts** on Twitch and data from SteamDB regarding the most played videogames. Approximately 2.5GB of data were collected during this period, which after a detailed analysis allowed the creation of a graph model on the [Neo4j DBMS](https://neo4j.com/) consisting of **4121 nodes and 54931 edges**.
 
+![Graph visualization on Gephi May 2022](https://github.com/gianscuri/Twitch_Community_Graph/blob/main/DataVisualization/Images/Gephi_graph_dark.png)
+
 ## Execution scheme
 
 ![Pipeline](https://github.com/gianscuri/Twitch_Community_Graph/blob/main/DataVisualization/Images/pipeline.png)
@@ -50,5 +52,3 @@ This repository contains data collected over a **two-week period in May 2022 reg
 
 
 For additional info on the project read `ProjectReport_ita.pdf` (in Italian)
-
-![Graph visualization on Gephi May 2022](https://github.com/gianscuri/Twitch_Community_Graph/blob/main/DataVisualization/Images/Gephi_graph_dark.png)
